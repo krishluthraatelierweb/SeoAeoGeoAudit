@@ -266,20 +266,6 @@ footer{border-top:1px solid var(--line);padding:26px 24px;text-align:center;colo
   </div>
 </div>
 
-<div class="band alt method">
-  <div class="shell">
-    <h2>How this was checked</h2>
-    <p class="sub">Every finding was verified first-hand on 13 Oct 2026 — in the Shopify admin via Claude in Chrome, and on the live storefront via headless Chromium.</p>
-    <div class="mgrid">
-      <div class="mcard" data-k="used"><div class="th">Run this pass</div><ul><li>Shopify admin — products, collections, preferences, apps, themes</li><li>Live rendered-DOM + Shopify.theme</li><li>Catalog JSON (/products.json)</li><li>Core Web Vitals field data</li><li>Screenshots as proof</li></ul></div>
-      <div class="mcard" data-k="seo"><div class="th">Recommended · SEO</div><ul><li>Search Console · GA4</li><li>Screaming Frog · Sitebulb</li><li>Semrush / Ahrefs · Moz</li><li>PageSpeed / Lighthouse</li><li>Rich Results Test</li></ul></div>
-      <div class="mcard" data-k="aeo"><div class="th">Recommended · AEO</div><ul><li>Search Console (snippets/PAA)</li><li>AlsoAsked · AnswerThePublic</li><li>Semrush/Ahrefs snippets</li><li>Surfer / Clearscope / Frase</li></ul></div>
-      <div class="mcard" data-k="geo"><div class="th">Recommended · GEO</div><ul><li>ChatGPT · Perplexity · Gemini</li><li>Profound · Peec AI · Otterly</li><li>Ahrefs Brand Radar</li><li>Wikidata · Common Crawl</li></ul></div>
-    </div>
-    <p class="mnote">Transparency: this audit used the live-inspection stack above. The pro tools are what we recommend connecting for continuous backlink and AI-citation data — not tools claimed for this one pass.</p>
-  </div>
-</div>
-
 <div class="lbox" id="lightbox"><img src="" alt="proof enlarged"></div>
 
 <footer>
@@ -641,7 +627,7 @@ function renderCard(c){
   if(detail){
     if(c[2])h+='<div class="ln tech"><span class="lb">Tech</span><span class="tx">'+c[2]+'</span></div>';
     if(c[3])h+='<div class="ln simple"><span class="lb">Simple</span><span class="tx">'+c[3]+'</span></div>';
-    if(c[4])h+='<div class="ln fix"><span class="lb">Fix</span><span class="tx">'+c[4]+'</span></div>';
+    if(c[4])h+='<div class="ln fix"><span class="lb">Fix</span><span class="tx">'+c[4].replace(/\s*<span class='chip'>[^<]*<\/span>/g,'')+'</span></div>';
     if(c[5])h+='<div class="ln more"><span class="lb">What more</span><span class="tx">'+c[5]+'</span></div>';
   } else {
     h+='<div class="note">'+(c[2]||'')+'</div>';
